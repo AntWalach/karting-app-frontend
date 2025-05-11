@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const API_URL = 'http://localhost:3000/api';  // dostosuj do swojego backendu!
-const API_URL = 'http://0.0.0.0:3001/api';  // dostosuj do swojego backendu!
+const API_URL = 'http://localhost:3000/api';  // dostosuj do swojego backendu!
+// const API_URL = 'http://0.0.0.0:3001/api';  // dostosuj do swojego backendu!
 
 const api = axios.create({
   baseURL: API_URL
