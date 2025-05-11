@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import RegistrationForm from './components/RegistrationForm';
 import UserList from './components/UserList';
+import TrackListPage from './pages/TrackListPage';
+import TrackCreatePage from './pages/TrackCreatePage';
+import TrackEditPage from './pages/TrackEditPage';
 import './App.css';
 
 // Komponent ochrony tras
@@ -65,6 +68,33 @@ function App() {
               element={
                 <ProtectedRoute>
                   <UserList />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/tracks" 
+              element={
+                <ProtectedRoute>
+                  <TrackListPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/tracks/new" 
+              element={
+                <ProtectedRoute>
+                  <TrackCreatePage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/tracks/edit/:id" 
+              element={
+                <ProtectedRoute>
+                  <TrackEditPage />
                 </ProtectedRoute>
               } 
             />

@@ -7,7 +7,6 @@ const UserList = () => {
   const [error, setError] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchUsers = async (pageNum = 1, query = {}) => {
     setLoading(true);
@@ -53,6 +52,7 @@ const UserList = () => {
                   <th>Nazwisko</th>
                   <th>Email</th>
                   <th>Data urodzenia</th>
+                  <th>Rola</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,6 +63,7 @@ const UserList = () => {
                     <td>{user.last_name}</td>
                     <td>{user.email}</td>
                     <td>{new Date(user.birthdate).toLocaleDateString()}</td>
+                    <td>{user.role_mask === 'A' ? 'Administrator' : 'Użytkownik'}</td>
                   </tr>
                 ))}
               </tbody>

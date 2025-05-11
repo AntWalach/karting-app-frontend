@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
-  const { authenticated, logout } = useAuth();
+  const { authenticated, logout, role } = useAuth();  // Dodajemy 'role'
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -28,8 +28,13 @@ const Navbar = () => {
             {authenticated ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/users">Użytkownicy</Link>
+                  <Link className="nav-link" to="/tracks">Tory</Link>
                 </li>
+                {role === 'A' && (
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/users">Użytkownicy</Link>
+                  </li>
+                )}
                 <li className="nav-item">
                   <button className="nav-link btn btn-link" onClick={handleLogout}>
                     Wyloguj
