@@ -2,7 +2,7 @@ import api from '../api/api';
 
 export const getTracks = async () => {
   const response = await api.get('/tracks');
-  return response.data;
+  return response.data.tracks;
 };
 
 export const getTrack = async (id) => {

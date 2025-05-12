@@ -8,7 +8,7 @@ export const getUsers = async (page = 1, query = {}) => {
         q: query
       }
     });
-    return response.data;
+    return response.data.users;
   } catch (error) {
     throw error.response?.data || { error: 'Błąd pobierania użytkowników' };
   }
