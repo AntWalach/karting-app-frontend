@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getTracks, deleteTrack } from '../services/track.service';
+import { getTracks, deleteTrack } from '../../services/track.service';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
+
+// importy pozostają bez zmian
 
 const TrackListPage = () => {
-  const { role } = useAuth();  // Zakładamy, że masz dostęp do roli użytkownika w AuthContext
+  const { role } = useAuth();
   const [tracks, setTracks] = useState([]);
 
   const loadTracks = async () => {
@@ -13,7 +15,6 @@ const TrackListPage = () => {
   };
 
   const handleDelete = async (id) => {
-    console.log(id)
     if (window.confirm('Czy na pewno usunąć ten tor?')) {
       await deleteTrack(id);
       loadTracks();
@@ -34,7 +35,9 @@ const TrackListPage = () => {
         {tracks.map((track) => (
           <li key={track.id} className="list-group-item d-flex justify-content-between align-items-center">
             <div>
-              <strong>{track.name}</strong> – {track.location} ({track.length_meters}m, {track.is_indoor ? 'kryty' : 'otwarty'})
+              <Link to={`/tracks/${track.id}`} className="text-decoration-none fw-bold">
+                {track.name}
+              </Link> – {track.location} ({track.length_meters}m, {track.is_indoor ? 'kryty' : 'otwarty'})
             </div>
             <div>
               {role === 'A' && (

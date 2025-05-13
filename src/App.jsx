@@ -5,10 +5,14 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import RegistrationForm from './components/RegistrationForm';
 import UserList from './components/UserList';
-import TrackListPage from './pages/TrackListPage';
-import TrackCreatePage from './pages/TrackCreatePage';
-import TrackEditPage from './pages/TrackEditPage';
+import TrackListPage from './pages/tracks/TrackListPage';
+import TrackCreatePage from './pages/tracks/TrackCreatePage';
+import TrackEditPage from './pages/tracks/TrackEditPage';
+import RaceDetailsPage from './pages/races/RaceDetailsPage';
+import RaceEditPage from './pages/races/RaceEditPage';
+import RaceCreatePage from './pages/races/RaceCreatePage';
 import './App.css';
+import TrackDetailsPage from './pages/tracks/TrackDetailsPage';
 
 // Komponent ochrony tras
 const ProtectedRoute = ({ children }) => {
@@ -82,6 +86,15 @@ function App() {
             />
 
             <Route 
+              path="/tracks/:id" 
+              element={
+                <ProtectedRoute>
+                  <TrackDetailsPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
               path="/tracks/new" 
               element={
                 <ProtectedRoute>
@@ -98,6 +111,34 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            
+            <Route 
+              path="/tracks/:trackId/races/new"  
+              element={
+                <ProtectedRoute>
+                  <RaceCreatePage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/races/:id" 
+              element={
+                <ProtectedRoute>
+                  <RaceDetailsPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/races/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <RaceEditPage />
+                </ProtectedRoute>
+              } 
+            />
+
           </Routes>
         </div>
       </div>

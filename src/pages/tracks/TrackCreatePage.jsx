@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { createTrack } from '../services/track.service';
-import TrackForm from '../components/TrackForm';
+import { createTrack } from '../../services/track.service';
+import TrackForm from '../../components/TrackForm';
 
 const TrackCreatePage = () => {
   const navigate = useNavigate();

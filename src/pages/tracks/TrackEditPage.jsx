@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getTrack, updateTrack } from '../services/track.service';
-import TrackForm from '../components/TrackForm';
+import { getTrack, updateTrack } from '../../services/track.service';
+import TrackForm from '../../components/TrackForm';
 
 const TrackEditPage = () => {
   const { id } = useParams();
