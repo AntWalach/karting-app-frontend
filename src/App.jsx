@@ -13,6 +13,9 @@ import RaceEditPage from './pages/races/RaceEditPage';
 import RaceCreatePage from './pages/races/RaceCreatePage';
 import './App.css';
 import TrackDetailsPage from './pages/tracks/TrackDetailsPage';
+import LapCreatePage from './pages/laps/LapCreatePage';
+import LapEditPage from './pages/laps/LapEditPage';
+import LapDetailsPage from './pages/laps/LapDetailsPage';
 
 // Komponent ochrony tras
 const ProtectedRoute = ({ children }) => {
@@ -135,6 +138,33 @@ function App() {
               element={
                 <ProtectedRoute>
                   <RaceEditPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/races/:raceId/laps/new"
+              element={
+                <ProtectedRoute>
+                  <LapCreatePage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/laps/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <LapEditPage />
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/laps/:id"
+              element={
+                <ProtectedRoute>
+                  <LapDetailsPage />
                 </ProtectedRoute>
               } 
             />
